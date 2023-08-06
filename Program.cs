@@ -41,12 +41,46 @@ string[] FillArray(string[] array)
     return array;
 }
 
+int CountLengthNewArray(string[] array)
+{
+    int count = 0;
+    int stringLength = 3;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= stringLength)
+        {
+            count++;
+        }
+    }
+    return count;
+}
+
+string[] ThreeSymbolArray(string[] array, string[] newArray)
+{
+    int stringLength = 3;
+    int step = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i].Length <= stringLength)
+        {
+            newArray[step] = array[i];
+            step++;
+        }
+
+    }
+    return newArray;
+}
+
 int N = Start("Введите число элементов массива");
 Console.WriteLine();
 string[] stringArray = new string[N];
 
 if (ValidateNumber(N))
 {
-  FillArray(stringArray);
+    FillArray(stringArray);
+    Console.WriteLine($"Исходный массив - [{string.Join(", ", stringArray)}]");
+    string[] newStringArray = new string[CountLengthNewArray(stringArray)];
+    ThreeSymbolArray(stringArray, newStringArray);
+    Console.WriteLine($"Массив из строк, длина которых меньше, " +
+    $"либо равна 3 символам - [{string.Join(", ", newStringArray)}]");
 }
- 
