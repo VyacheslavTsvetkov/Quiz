@@ -27,11 +27,26 @@ bool ValidateNumber(int value)
     return true;
 }
 
+string[] FillArray(string[] array)
+{
+    int count = array.Length;
+    int i = 0;
+    while (count != 0)
+    {
+        Console.Write($"введите {i + 1}-й элемент массива   ");
+        array[i] = Console.ReadLine();
+        i++;
+        count--;
+    }
+    return array;
+}
+
 int N = Start("Введите число элементов массива");
 Console.WriteLine();
 string[] stringArray = new string[N];
 
 if (ValidateNumber(N))
 {
-  
+  FillArray(stringArray);
 }
+ 
